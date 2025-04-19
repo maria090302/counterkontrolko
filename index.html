@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Counter</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      color: #000;
+      margin: 0;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  👁 Посещения: <span id="visit-counter">...</span>
+
+  <script>
+    fetch('https://api.countapi.xyz/hit/kontrolko/visits')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('visit-counter').innerText = data.value;
+      })
+      .catch(() => {
+        document.getElementById('visit-counter').innerText = 'Грешка';
+      });
+  </script>
+</body>
+</html>
