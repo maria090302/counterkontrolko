@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="bg">
-<head>
-  <meta charset="UTF-8">
-  <title>Counter</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      font-size: 16px;
-      color: #000;
-      margin: 0;
-      padding: 10px;
-    }
-  </style>
-</head>
-<body>
-  👁 Посещения: <span id="visit-counter">...</span>
-
-  <script>
-    fetch('https://api.countapi.xyz/hit/kontrolkoo-framer-website/visits')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('visit-counter').innerText = data.value;
-      })
-      .catch(() => {
-        document.getElementById('visit-counter').innerText = 'Грешка';
-      });
-  </script>
-</body>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    Общо посещения: <span id="visit-count">...</span>
+    <script>
+      fetch('https://api.countapi.xyz/hit/kontrolkoo.site/visits')
+        .then(res => res.json())
+        .then(res => {
+          document.getElementById('visit-count').innerText = res.value;
+        });
+    </script>
+  </body>
 </html>
